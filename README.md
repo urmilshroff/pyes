@@ -1,3 +1,3 @@
 # Pyes
 
-Application of image recognition - done by Urmil Shroff, Vinay Kolwanker and Arya Monani.
+Image recognition using OpenCV - done by Urmil Shroff, Vinay Kolwanker and Arya Monani.
