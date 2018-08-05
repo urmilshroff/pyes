@@ -1,5 +1,5 @@
 import sys
-
+#aakash is gay
 try:
     import cv2
     import numpy as np
