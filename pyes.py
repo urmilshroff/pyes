@@ -1,16 +1,16 @@
 import sys
-#aakash is gay
+
 try:
     import cv2
     import numpy as np
     dependencies=True
-    
+
 except ImportError:
     print("\nSorry, you don't seem to have OpenCV installed for the following version of Python: {}\n\nYou can try by running 'pip3 install opencv-python'.\n".format(sys.version))
     dependencies=False
-    
+
 if dependencies==True:
-    
+
     cap=cv2.VideoCapture(0) #0 is id of webcam
 
     while True:
