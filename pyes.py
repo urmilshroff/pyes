@@ -1,4 +1,5 @@
 import sys
+import shlex, subprocess
 
 try:
     import cv2 #opencv
@@ -6,17 +7,19 @@ try:
     dependencies=True
 
 except ImportError:
-    print("\nSorry, you don't seem to have OpenCV installed for the following version of Python: {}\n\nYou can try by running 'pip3 install opencv-python'.\n".format(sys.version))
+    print("\nSorry, you don't seem to have the required dependencies installed for the following version of Python: {}\n".format(sys.version))
     
-    # install_cv2=input("Would you like to install OpenCV? Y/n:\n")
-    # if install_cv2=="y":
-    #     subprocess.call("install_cv2.sh", shell=True)
-    # else:
-    #     print("Exiting...")
-    #     dependencies=False
+    if input("Would you like to install OpenCV? Y/N:\n")=="y":
+        subprocess.Popen(shlex.split("pip3 install opencv-python"))
+        
+    if input("Would you like to install Numpy? Y/N:\n")=="y":
+        subprocess.Popen(shlex.split("pip3 install numpy"))
+        
+    print("Please restart the program")
+    dependencies=False
 
 if dependencies==True:
-
+    
     cap=cv2.VideoCapture(0) #0 is id of webcam
 
     while True:
