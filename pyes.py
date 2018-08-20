@@ -7,7 +7,13 @@ try:
 
 except ImportError:
     print("\nSorry, you don't seem to have OpenCV installed for the following version of Python: {}\n\nYou can try by running 'pip3 install opencv-python'.\n".format(sys.version))
-    dependencies=False
+    
+    install_cv2=input("Would you like to install OpenCV? Y/n:\n")
+    if install_cv2=="y":
+        subprocess.call("install_cv2.sh", shell=True)
+    else:
+        print("Exiting...")
+        dependencies=False
 
 if dependencies==True:
 
