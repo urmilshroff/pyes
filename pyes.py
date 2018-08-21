@@ -1,5 +1,6 @@
 import sys
 import shlex, subprocess
+import time
 
 try:
     import cv2 #opencv
@@ -11,9 +12,11 @@ except ImportError:
     
     if input("Would you like to install OpenCV? Y/N:\n")=="y":
         subprocess.Popen(shlex.split("pip3 install opencv-python"))
+        time.sleep(5)
         
     if input("Would you like to install Numpy? Y/N:\n")=="y":
         subprocess.Popen(shlex.split("pip3 install numpy"))
+        time.sleep(5)
         
     print("Please restart the program")
     dependencies=False
