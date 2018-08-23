@@ -11,27 +11,34 @@ except ImportError:
     print("\nSorry, you don't seem to have the required dependencies installed for the following version of Python: {}\n".format(sys.version))
     
     if input("Would you like to install OpenCV? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip3 install opencv-python"))
+        subprocess.Popen(shlex.split("pip3 install opencv-python")) #script to install OpenCV
         
     if input("Would you like to install Numpy? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip3 install numpy"))
+        subprocess.Popen(shlex.split("pip3 install numpy")) #script to install Numpy
         
-    print("Please restart the program")
+    print("Please restart the program") #regardless of dependencies
     dependencies=False
 
-if dependencies==True:
+if dependencies==True: #only if everything is installed, it will continue to run
     
-    face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml")
-    eyes_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml")
-    
-    cap=cv2.VideoCapture(0) #0 is id of webcam
+    class Pyes:
+        def __init__(self):
+            self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml")
+            self.cap=cv2.VideoCapture(0) #0 is id of webcam
+            
+        def face_detector(self):
+            while True:
+                ret, color_frame=self.cap.read() #returns each frame of the video
+                gray_frame=cv2.cvtColor(color_frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
+                self.face=self.face_cascade.detectMultiScale(gray_frame,1.3,5)
 
-    while True:
-        ret, frame=cap.read() #returns each frame of the video
-        gray_frame=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
+                for (fx,fy,fw,fh) in self.face:
+                    cv2.rectangle(color_frame,(fx,fy),(fx+fw,fy+fh),(255,255,0),3)
+                    
+                cv2.imshow("Detecting face",color_frame)
 
-        cv2.imshow("Color video",frame)
-        cv2.imshow("Gray video",gray_frame)
-
-        if cv2.waitKey(1) & 0xFF==ord("q"): #just syntax
-            break
+                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                    break
+                    
+    obj=Pyes()
+    obj.face_detector()
