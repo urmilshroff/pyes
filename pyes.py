@@ -1,10 +1,10 @@
 import sys
-import shlex, subprocess
+import shlex, subprocess #for running shell commands
 import time
 
 try:
     import cv2 #opencv
-    import numpy as np
+    import numpy as np #numerical python library required for opencv
     dependencies=True
 
 except ImportError:
@@ -12,16 +12,17 @@ except ImportError:
     
     if input("Would you like to install OpenCV? Y/N:\n")=="y":
         subprocess.Popen(shlex.split("pip3 install opencv-python"))
-        time.sleep(5)
         
     if input("Would you like to install Numpy? Y/N:\n")=="y":
         subprocess.Popen(shlex.split("pip3 install numpy"))
-        time.sleep(5)
         
     print("Please restart the program")
     dependencies=False
 
 if dependencies==True:
+    
+    face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml")
+    eyes_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml")
     
     cap=cv2.VideoCapture(0) #0 is id of webcam
 
