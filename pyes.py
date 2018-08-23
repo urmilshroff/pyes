@@ -32,5 +32,5 @@ if dependencies==True:
         cv2.imshow("Color video",frame)
         cv2.imshow("Gray video",gray_frame)
 
-        if cv2.waitKey(1) and 0xFF==ord("q"): #pressing "q" kills the video
+        if cv2.waitKey(1) & 0xFF==ord("q"): #just syntax
             break
