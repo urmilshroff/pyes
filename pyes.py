@@ -48,10 +48,10 @@ if dependencies==True: #only if everything is installed, it will continue to run
     choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n"))
     
     if choice==1:
-        println("Looking for faces...")
+        print("\nLooking for faces...")
         obj.face_detector()
     elif choice==2:
-        println("Looking for eyes...")
+        print("\nLooking for eyes...")
         obj.eye_detector()
     else:
         print("\nSorry, invalid input!")
