@@ -1,6 +1,5 @@
 import sys
 import shlex, subprocess #for running shell commands
-import time
 
 try:
     import cv2 #opencv
