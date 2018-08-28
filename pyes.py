@@ -22,7 +22,7 @@ except ImportError:
 if dependencies==True: #only if everything is installed, it will continue to run
     
     class Pyes:
-        def __init__(self):
+        def __init__(self): #constructor
             self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml")
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
             
@@ -33,12 +33,25 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 self.face=self.face_cascade.detectMultiScale(gray_frame,1.3,5)
 
                 for (fx,fy,fw,fh) in self.face:
-                    cv2.rectangle(color_frame,(fx,fy),(fx+fw,fy+fh),(255,255,0),3)
+                    cv2.rectangle(color_frame,(fx,fy),(fx+fw,fy+fh),(255,255,0),3) #BGR values
                     
                 cv2.imshow("Detecting face",color_frame)
 
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
                     
-    obj=Pyes()
-    obj.face_detector()
+        def eye_detector(self):
+            pass
+                    
+    obj=Pyes() #creates object of the class Pyes
+    
+    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n"))
+    
+    if choice==1:
+        print("\nLooking for faces...")
+        obj.face_detector()
+    elif choice==2:
+        print("\nLooking for eyes...")
+        obj.eye_detector()
+    else:
+        print("\nSorry, invalid input!")
