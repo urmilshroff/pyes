@@ -24,7 +24,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
         def __init__(self): #constructor
             self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml") #declares the face cascade
             self.eye_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml") #declares the eye cascade
-            self.mouth_cascade=cv2.CascadeClassifier("haar_cascades/mouth_cascade.xml") #declares the mouth cascade
+            self.nose_cascade=cv2.CascadeClassifier("haar_cascades/nose_cascade.xml") #declares the nose cascade
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
 
         def face_detector(self):
@@ -55,23 +55,23 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
 
-        def mouth_detector(self):
+        def nose_detector(self):
             while True:
                 ret, color_frame=self.cap.read() #returns each frame of the video
                 gray_frame=cv2.cvtColor(color_frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
-                self.mouth=self.mouth_cascade.detectMultiScale(gray_frame,1.3,5)
+                self.nose=self.nose_cascade.detectMultiScale(gray_frame,1.3,5)
 
-                for (mx,my,mw,mh) in self.mouth:
-                    cv2.rectangle(color_frame,(mx,my),(mx+mw,my+mh),(0,255,0),3) #BGR values
+                for (nx,ny,nw,nh) in self.nose:
+                    cv2.rectangle(color_frame,(nx,ny),(nx+mw,ny+nh),(0,255,0),3) #BGR values
 
-                cv2.imshow("Detecting mouth",color_frame)
-
+                cv2.imshow("Detecting nose",color_frame)
+                
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
 
     obj=Pyes() #creates object of the class Pyes
 
-    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Mouth\n"))
+    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\n"))
 
     if choice==1:
         print("\nLooking for faces...")
@@ -82,8 +82,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
         obj.eye_detector()
 
     elif choice==3:
-        print("\nLooking for mouth...")
-        obj.mouth_detector()
+        print("\nLooking for nose...")
+        obj.nose_detector()
 
     else:
         print("\nSorry, invalid input!")
