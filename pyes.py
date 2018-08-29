@@ -62,7 +62,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 self.nose=self.nose_cascade.detectMultiScale(gray_frame,1.3,5)
 
                 for (nx,ny,nw,nh) in self.nose:
-                    cv2.rectangle(color_frame,(nx,ny),(nx+mw,ny+nh),(0,255,0),3) #BGR values
+                    cv2.rectangle(color_frame,(nx,ny),(nx+nw,ny+nh),(0,255,0),3) #BGR values
 
                 cv2.imshow("Detecting nose",color_frame)
                 
