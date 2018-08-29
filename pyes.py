@@ -24,6 +24,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
         def __init__(self): #constructor
             self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml") #declares the face cascade
             self.eye_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml") #declares the eye cascade
+            self.body_cascade=cv2.CascadeClassifier("haar_cascades/fullbody_cascade.xml") #declares the eye cascade
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
 
         def face_detector(self):
@@ -53,10 +54,23 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
+        def body_detector(self):
+            while True:
+                ret, color_frame=self.cap.read() #returns each frame of the video
+                gray_frame=cv2.cvtColor(color_frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
+                self.body=self.body_cascade.detectMultiScale(gray_frame,1.3,5)
+
+                for (bx,by,bw,bh) in self.body:
+                    cv2.rectangle(color_frame,(bx,by),(bx+bw,by+bh),(0,255,0),3) #BGR values
+
+                cv2.imshow("Detecting body",color_frame)
+
+                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                    break
 
     obj=Pyes() #creates object of the class Pyes
 
-    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n"))
+    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Body\n"))
 
     if choice==1:
         print("\nLooking for faces...")
@@ -64,5 +78,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
     elif choice==2:
         print("\nLooking for eyes...")
         obj.eye_detector()
+    elif choice==3:
+        print("\nLooking for body...")
+        obj.body_detector()
     else:
         print("\nSorry, invalid input!")
