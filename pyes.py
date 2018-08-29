@@ -24,7 +24,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
         def __init__(self): #constructor
             self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml") #declares the face cascade
             self.eye_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml") #declares the eye cascade
-            self.body_cascade=cv2.CascadeClassifier("haar_cascades/fullbody_cascade.xml") #declares the eye cascade
+            self.body_cascade=cv2.CascadeClassifier("haar_cascades/fullbody_cascade.xml") #declares the body cascade
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
 
         def face_detector(self):
@@ -54,6 +54,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
+                    
         def body_detector(self):
             while True:
                 ret, color_frame=self.cap.read() #returns each frame of the video
@@ -75,11 +76,14 @@ if dependencies==True: #only if everything is installed, it will continue to run
     if choice==1:
         print("\nLooking for faces...")
         obj.face_detector()
+        
     elif choice==2:
         print("\nLooking for eyes...")
         obj.eye_detector()
+        
     elif choice==3:
         print("\nLooking for body...")
         obj.body_detector()
+        
     else:
         print("\nSorry, invalid input!")
