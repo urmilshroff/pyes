@@ -55,7 +55,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
 
-        def nose_detector(self):
+        def mouth_detector(self):
             while True:
                 ret, color_frame=self.cap.read() #returns each frame of the video
                 gray_frame=cv2.cvtColor(color_frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
