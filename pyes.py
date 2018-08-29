@@ -36,6 +36,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 for (fx,fy,fw,fh) in self.face:
                     cv2.rectangle(color_frame,(fx,fy),(fx+fw,fy+fh),(255,255,0),3) #BGR values
+                    font=cv2.FONT_HERSHEY_SIMPLEX
+                    cv2.putText(color_frame,"Face",(fx,fy-7),font,1,(255,255,0),2,cv2.LINE_AA)
 
                 cv2.imshow("Detecting face",color_frame)
 
@@ -50,6 +52,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 for (ex,ey,ew,eh) in self.eye:
                     cv2.rectangle(color_frame,(ex,ey),(ex+ew,ey+eh),(0,255,255),3) #BGR values
+                    font=cv2.FONT_HERSHEY_SIMPLEX
+                    cv2.putText(color_frame,"Eye",(ex,ey-7),font,1,(0,255,255),2,cv2.LINE_AA)
 
                 cv2.imshow("Detecting eyes",color_frame)
 
@@ -64,6 +68,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 for (nx,ny,nw,nh) in self.nose:
                     cv2.rectangle(color_frame,(nx,ny),(nx+nw,ny+nh),(0,255,0),3) #BGR values
+                    font=cv2.FONT_HERSHEY_SIMPLEX
+                    cv2.putText(color_frame,"Nose",(nx,ny-7),font,1,(0,255,0),2,cv2.LINE_AA)
 
                 cv2.imshow("Detecting nose",color_frame)
 
@@ -78,6 +84,8 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
                 for (hx,hy,hw,hh) in self.hand:
                     cv2.rectangle(color_frame,(hx,hy),(hx+hw,hy+hh),(0,0,200),3) #BGR values
+                    font=cv2.FONT_HERSHEY_SIMPLEX
+                    cv2.putText(color_frame,"Hand",(hx,hy-7),font,1,(0,0,200),2,cv2.LINE_AA)
 
                 cv2.imshow("Detecting hand",color_frame)
 
