@@ -65,25 +65,31 @@ if dependencies==True: #only if everything is installed, it will continue to run
                     cv2.rectangle(color_frame,(nx,ny),(nx+nw,ny+nh),(0,255,0),3) #BGR values
 
                 cv2.imshow("Detecting nose",color_frame)
-                
+
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
 
     obj=Pyes() #creates object of the class Pyes
 
-    choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\n"))
+    while True:
 
-    if choice==1:
-        print("\nLooking for faces...")
-        obj.face_detector()
+        try:
+            choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\nPress any number to exit.\n"))
 
-    elif choice==2:
-        print("\nLooking for eyes...")
-        obj.eye_detector()
+            if choice==1:
+                print("\nLooking for faces...")
+                obj.face_detector()
 
-    elif choice==3:
-        print("\nLooking for nose...")
-        obj.nose_detector()
+            elif choice==2:
+                print("\nLooking for eyes...")
+                obj.eye_detector()
 
-    else:
-        print("\nSorry, invalid input!")
+            elif choice==3:
+                print("\nLooking for nose...")
+                obj.nose_detector()
+
+            else:
+                break
+
+        except ValueError:
+            print("\nSorry, invalid input!")
