@@ -26,6 +26,7 @@ if dependencies==True: #only if everything is installed, it will continue to run
             self.eye_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml") #declares the eye cascade
             self.nose_cascade=cv2.CascadeClassifier("haar_cascades/nose_cascade.xml") #declares the nose cascade
             self.hand_cascade=cv2.CascadeClassifier("haar_cascades/hand_cascade.xml") #declares the hand cascade
+            self.clock_cascade=cv2.CascadeClassifier("haar_cascades/clock_cascade.xml") #declares the clock cascade
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
 
         def face_detector(self):
@@ -92,13 +93,29 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
                     
+        def clock_detector(self):
+            while True:
+                ret, color_frame=self.cap.read() #returns each frame of the video
+                gray_frame=cv2.cvtColor(color_frame,cv2.COLOR_BGR2GRAY) #converts each frame to grayscale
+                self.clock=self.clock_cascade.detectMultiScale(gray_frame,1.3,5)
+
+                for (hx,hy,hw,hh) in self.clock:
+                    cv2.rectangle(color_frame,(hx,hy),(hx+hw,hy+hh),(0,0,200),3) #BGR values
+                    font=cv2.FONT_HERSHEY_SIMPLEX
+                    cv2.putText(color_frame,"clock",(hx,hy-7),font,1,(0,0,200),2,cv2.LINE_AA)
+
+                cv2.imshow("Detecting clock",color_frame)
+
+                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                    break
+                    
 
     obj=Pyes() #creates object of the class Pyes
 
     while True:
 
         try:
-            choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\n4. Hand\n\nPress any number to exit.\n"))
+            choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\n4. Hand\n5. Clock\nPress any number to exit.\n"))
 
             if choice==1:
                 print("\nLooking for faces...")
@@ -114,7 +131,11 @@ if dependencies==True: #only if everything is installed, it will continue to run
                 
             elif choice==4:
                 print("\nLooking for hand...")
-                obj.hand_detector()                
+                obj.hand_detector()
+                
+            elif choice==5:
+                print("\nLooking for clock...")
+                obj.clock_detector()
 
             else:
                 break
