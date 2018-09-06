@@ -4,10 +4,16 @@ import shlex, subprocess #for running shell commands
 try:
     import cv2 #opencv
     import numpy as np #numerical python library required for opencv
+    import kivy #for gui
+    from kivy.app import App
+    from kivy.uix.gridlayout import GridLayout
     dependencies=True
 
 except ImportError:
     print("\nSorry, you don't seem to have the required dependencies installed for the following version of Python: {}\n".format(sys.version))
+    
+    if input("Would you like to install Kivy? Y/N:\n")=="y":
+        subprocess.Popen(shlex.split("pip3 install Kivy")) #script to install Kivy
 
     if input("Would you like to install OpenCV? Y/N:\n")=="y":
         subprocess.Popen(shlex.split("pip3 install opencv-python")) #script to install OpenCV
@@ -142,3 +148,14 @@ if dependencies==True: #only if everything is installed, it will continue to run
 
         except ValueError:
             print("\nSorry, invalid input!")
+            
+            
+    class PyesGridLayout(App):
+        pass
+        
+    class PyesApp(App):
+        def build(self):
+            return PyesGridLayout()
+            
+    ipApp=PyesApp()
+    ipApp.run()
