@@ -1,34 +1,34 @@
-import sys
-import shlex, subprocess #for running shell commands
+# import sys
+# import shlex, subprocess #for running shell commands
+# 
+# try:
+#     import cv2 #opencv
+#     import numpy as np #numerical python library required for opencv
+#     import kivy #for gui
+#     from kivy.app import App
+#     from kivy.uix.gridlayout import GridLayout
+#     dependencies=True
+# 
+# except ImportError:
+#     print("\nSorry, you don't seem to have the required dependencies installed for the following version of Python: {}\n".format(sys.version))
+# 
+#     if input("Would you like to install Kivy? Y/N:\n")=="y":
+#         subprocess.Popen(shlex.split("pip3 install Kivy")) #script to install Kivy
+# 
+#     if input("Would you like to install OpenCV? Y/N:\n")=="y":
+#         subprocess.Popen(shlex.split("pip3 install opencv-python")) #script to install OpenCV
+# 
+#     if input("Would you like to install Numpy? Y/N:\n")=="y":
+#         subprocess.Popen(shlex.split("pip3 install numpy")) #script to install Numpy
+# 
+#     print("Please restart the program") #regardless of dependencies
+#     dependencies=False
+# 
+# if dependencies==True: #only if everything is installed, it will continue to run
 
-try:
-    import cv2 #opencv
-    import numpy as np #numerical python library required for opencv
-    import kivy #for gui
-    from kivy.app import App
-    from kivy.uix.gridlayout import GridLayout
-    dependencies=True
-
-except ImportError:
-    print("\nSorry, you don't seem to have the required dependencies installed for the following version of Python: {}\n".format(sys.version))
-    
-    if input("Would you like to install Kivy? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip3 install Kivy")) #script to install Kivy
-
-    if input("Would you like to install OpenCV? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip3 install opencv-python")) #script to install OpenCV
-
-    if input("Would you like to install Numpy? Y/N:\n")=="y":
-        subprocess.Popen(shlex.split("pip3 install numpy")) #script to install Numpy
-
-    print("Please restart the program") #regardless of dependencies
-    dependencies=False
-
-if dependencies==True: #only if everything is installed, it will continue to run
-
-    class Pyes:
-        def hello():
-            print("Hello")
+    # class Pyes:
+    #     def hello():
+    #         print("Hello")
     #     def __init__(self): #constructor
     #         self.face_cascade=cv2.CascadeClassifier("haar_cascades/face_cascade.xml") #declares the face cascade
     #         self.eye_cascade=cv2.CascadeClassifier("haar_cascades/eyes_cascade.xml") #declares the eye cascade
@@ -162,12 +162,3 @@ if dependencies==True: #only if everything is installed, it will continue to run
     # ipApp=PyesApp()
     # ipApp.run()
     
-    class ObjectRecGridLayout(GridLayout,Pyes):
-        pass
-
-    class ObjectRecApp(App,Pyes):
-        def build(self):
-            return ObjectRecGridLayout()
-            
-    rec_obj=ObjectRecApp()
-    rec_obj.run()
