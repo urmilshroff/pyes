@@ -163,26 +163,18 @@
     # ipApp.run()
     
 import kivy
-kivy.require("1.10.0") #not important
+kivy.require("1.10.0")
 
-from kivy.app import App #classes
+from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 
-class CalcGridLayout(GridLayout):
-    def calculate(self,args):
-        if args:
-            try:
-                self.input.text=str(eval(args))
-            except Exception:
-                self.input.text="Error!"
-                
-    def clear(self,args):
-        if args:
-            self.input.text=("")                
+class PyGridLayout(GridLayout):
+    def hello(self):
+        pass
     
-class CalculatorApp(App):
+class PyesApp(App):
     def build(self):
-        return CalcGridLayout()
+        return PyGridLayout()
         
-calcApp=CalculatorApp()
-calcApp.run()
+ip_app=PyesApp()
+ip_app.run()
