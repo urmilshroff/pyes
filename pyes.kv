@@ -1,7 +1,7 @@
 <CustButton@Button>:
     font_size: 40
 
-<PyGridLayout>:
+<PyesGridLayout>:
     id: pyes
     rows: 5
     padding: 10
@@ -11,12 +11,25 @@
         spacing: 10
         CustButton:
             text: "Face"
-            on_press:
+            on_press: root.hello()
             
         CustButton:
-            text: "Face"
-            on_press:
+            text: "Eyes"
+            on_press: root.hello()
             
         CustButton:
-            text: "Face"
-            on_press:
+            text: "Nose"
+            on_press: root.hello()
+
+    BoxLayout:
+        spacing: 10
+        CustButton:
+            text: "Hand"
+            on_press: root.hello()
+            
+        CustButton:
+            text: "Clock"
+            on_press: root.hello()
+            
+        CustButton:
+            text: "I DO NOTHING"
