@@ -38,9 +38,6 @@ if dependencies_exist: #only if everything is installed, program will continue t
             self.hand_cascade=cv2.CascadeClassifier("haar_cascades/hand_cascade.xml") #declares the hand cascade
             self.clock_cascade=cv2.CascadeClassifier("haar_cascades/clock_cascade.xml") #declares the clock cascade
             self.cap=cv2.VideoCapture(0) #0 is id of webcam
-            
-        def hello(self):
-            print("Hello")
     
         def face_detector(self):
             while True:
@@ -156,12 +153,14 @@ if dependencies_exist: #only if everything is installed, program will continue t
     #     except ValueError:
     #         print("\nSorry, invalid input!")
 
+
     class PyesGridLayout(GridLayout,PyesRecognitionLogic):
-        pass
+        def nothing(self):
+            print("I FUCKING SAID I DO NOTHING.")
 
     class PyesApp(App):
         def build(self):
             return PyesGridLayout()
-            
+
     pyes=PyesApp()
     pyes.run()
