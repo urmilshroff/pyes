@@ -156,7 +156,7 @@ if dependencies_exist: #only if everything is installed, program will continue t
 
     class PyesGridLayout(GridLayout,PyesRecognitionLogic):
         def nothing(self):
-        print("Sorry couldn't exit.")
+            print("Sorry couldn't exit.")   
 
     class PyesApp(App):
         def build(self):
