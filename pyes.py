@@ -157,7 +157,7 @@ if dependencies_exist: #only if everything is installed, program will continue t
     class PyesGridLayout(GridLayout,PyesRecognitionLogic):
         def nothing(self):
             if cv2.waitKey(25) & 0xFF == ord('q'):
-             break
+                 break
 
     class PyesApp(App):
         def build(self):
