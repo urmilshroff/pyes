@@ -1,0 +1,36 @@
+<CustButton@Button>:
+    font_size: 40
+
+<PyesGridLayout>:
+    id: pyes
+    rows: 5
+    padding: 10
+    spacing: 10
+            
+    BoxLayout:
+        spacing: 10
+        CustButton:
+            text: "Face"
+            on_press: root.face_detector()
+            
+        CustButton:
+            text: "Eyes"
+            on_press: root.eye_detector()
+            
+        CustButton:
+            text: "Nose"
+            on_press: root.nose_detector()
+
+    BoxLayout:
+        spacing: 10
+        CustButton:
+            text: "Hand"
+            on_press: root.hand_detector()
+            
+        CustButton:
+            text: "Clock"
+            on_press: root.clock_detector()
+            
+        CustButton:
+            text: "Exit"
+            on_press: root.nothing()
