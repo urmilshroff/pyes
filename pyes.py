@@ -52,8 +52,10 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 cv2.imshow("Detecting face",color_frame)
     
-                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                if cv2.waitKey(1) & 0xFF==ord("q"): #quits when pressing q
                     break
+                    
+            pyes.Exit()
     
         def eye_detector(self):
             while True:
@@ -68,8 +70,10 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 cv2.imshow("Detecting eyes",color_frame)
     
-                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                if cv2.waitKey(1) & 0xFF==ord("q"): #quits when pressing q
                     break
+
+            pyes.Exit()
     
         def nose_detector(self):
             while True:
@@ -86,7 +90,9 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
                     break
-    
+                    
+            pyes.Exit()
+            
         def hand_detector(self):
             while True:
                 ret, color_frame=self.cap.read() #returns each frame of the video
@@ -100,8 +106,10 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 cv2.imshow("Detecting hand",color_frame)
     
-                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                if cv2.waitKey(1) & 0xFF==ord("q"): #quits when pressing q
                     break
+                    
+            pyes.Exit()
     
         def clock_detector(self):
             while True:
@@ -116,8 +124,10 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 cv2.imshow("Detecting clock",color_frame)
     
-                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                if cv2.waitKey(1) & 0xFF==ord("q"): #quits when pressing q
                     break
+                    
+            pyes.Exit()
                     
 
     # obj=PyesRecognitionLogic() #creates object of the class PyesRecognitionLogic
@@ -155,8 +165,7 @@ if dependencies_exist: #only if everything is installed, program will continue t
 
 
     class PyesGridLayout(GridLayout,PyesRecognitionLogic):
-        def nothing(self):
-            print("Sorry couldn't exit.")   
+        pass  
 
     class PyesApp(App):
         def build(self):
