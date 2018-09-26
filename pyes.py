@@ -88,7 +88,7 @@ if dependencies_exist: #only if everything is installed, program will continue t
     
                 cv2.imshow("Detecting nose",color_frame)
     
-                if cv2.waitKey(1) and 0xFF==ord("q"): #just syntax
+                if cv2.waitKey(1) & 0xFF==ord("q"): #quits when pressing q
                     break
                     
             pyes.Exit()
