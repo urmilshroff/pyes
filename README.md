@@ -1,12 +1,12 @@
 # Pyes🐍👀
 
-Object detection using OpenCV, including detection of faces, eyes, clocks, etc.
+Object detection using OpenCV; including detection of faces, eyes, clocks, etc.
 
-#Packages used📦
+# Packages used📦
 <br>• OpenCV<br>• Kivy<br>• NumPy
 
-#Screenshots📸
-Face detector: (screenshots/face.png)
+# Screenshots📸
+<br>Face detector: (screenshots/face.png)
 
-#Credits
-Done by<br>• Urmil Shroff<br>• Vinay Kolwanker<br>• Arya Monani
+# Credits🏆
+<br>Done by<br>• Urmil Shroff<br>• Vinay Kolwanker<br>• Arya Monani
