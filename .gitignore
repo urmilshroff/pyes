@@ -103,4 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Windows & Mac network files
+desktop.ini
 .DS_Store
