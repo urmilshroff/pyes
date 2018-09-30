@@ -8,11 +8,14 @@ Object detection using OpenCV, including detection of:<br>• Face<br>• Eyes<b
 # Screenshots📸
 Application GUI:
 ![Kivy app](screenshots/gui.png)
-<br>Face detector:
+
+Face detector:
 ![Face detector](screenshots/face.png)
-<br>Eyes detector:
+
+Eyes detector:
 ![Eyes detector](screenshots/eyes.png)
-<br>Clock detector:
+
+Clock detector:
 ![Clock detector](screenshots/clock.png)
 
 # Credits🏆
