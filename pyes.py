@@ -102,7 +102,7 @@ if dependencies_exist: #only if everything is installed, program will continue t
                 for (hx,hy,hw,hh) in self.hand:
                     cv2.rectangle(color_frame,(hx,hy),(hx+hw,hy+hh),(0,0,200),3) #BGR values
                     font=cv2.FONT_HERSHEY_SIMPLEX
-                    cv2.putText(color_frame,"Hand",(hx,hy-7),font,1,(0,0,200),2,cv2.LINE_AA)
+                    cv2.putText(color_frame,"Fist",(hx,hy-7),font,1,(0,0,200),2,cv2.LINE_AA)
     
                 cv2.imshow("Detecting hand",color_frame)
     
@@ -118,9 +118,9 @@ if dependencies_exist: #only if everything is installed, program will continue t
                 self.clock=self.clock_cascade.detectMultiScale(gray_frame,1.3,5)
     
                 for (hx,hy,hw,hh) in self.clock:
-                    cv2.rectangle(color_frame,(hx,hy),(hx+hw,hy+hh),(0,0,200),3) #BGR values
+                    cv2.rectangle(color_frame,(hx,hy),(hx+hw,hy+hh),(100,50,200),3) #BGR values
                     font=cv2.FONT_HERSHEY_SIMPLEX
-                    cv2.putText(color_frame,"clock",(hx,hy-7),font,1,(0,0,200),2,cv2.LINE_AA)
+                    cv2.putText(color_frame,"Clock",(hx,hy-7),font,1,(100,50,200),2,cv2.LINE_AA)
     
                 cv2.imshow("Detecting clock",color_frame)
     
@@ -129,41 +129,6 @@ if dependencies_exist: #only if everything is installed, program will continue t
                     
             pyes.Exit()
                     
-
-    # obj=PyesRecognitionLogic() #creates object of the class PyesRecognitionLogic
-    # 
-    # while True:
-    # 
-    #     try:
-    #         choice=int(input("\nWhat objects would you like to detect?\n1. Face\n2. Eyes\n3. Nose\n4. Hand\n5. Clock\nPress any number to exit.\n"))
-    # 
-    #         if choice==1:
-    #             print("\nLooking for faces...")
-    #             obj.face_detector()
-    # 
-    #         elif choice==2:
-    #             print("\nLooking for eyes...")
-    #             obj.eye_detector()
-    # 
-    #         elif choice==3:
-    #             print("\nLooking for nose...")
-    #             obj.nose_detector()
-    # 
-    #         elif choice==4:
-    #             print("\nLooking for hand...")
-    #             obj.hand_detector()
-    # 
-    #         elif choice==5:
-    #             print("\nLooking for clock...")
-    #             obj.clock_detector()
-    # 
-    #         else:
-    #             break
-    # 
-    #     except ValueError:
-    #         print("\nSorry, invalid input!")
-
-
     class PyesGridLayout(GridLayout,PyesRecognitionLogic):
         pass  
 
